@@ -13,16 +13,8 @@
                 
                 <ul class="space-y-5 text-lg">
                     <li class="flex items-start">
-                        <i class="fa-solid fa-location-dot w-6 shrink-0 mt-1.5 text-orange-400"></i>
-                        <span>[Isi alamat lengkap Anda di sini]</span>
-                    </li>
-                    <li class="flex items-start">
                         <i class="fa-solid fa-phone w-6 shrink-0 mt-1.5 text-orange-400"></i>
-                        <a href="tel:6285718115734" class="hover:text-orange-400 transition-colors">0857-1811-5734 (WA/Telepon)</a>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fa-solid fa-envelope w-6 shrink-0 mt-1.5 text-orange-400"></i>
-                        <a href="mailto:email@amarapizza.com" class="hover:text-orange-400 transition-colors">[email@bisnisanda.com]</a>
+                        <a href="tel:6285772091907" class="hover:text-orange-400 transition-colors">08577-2091-907</a>
                     </li>
                     <li class="flex items-start">
                         <i class="fa-brands fa-instagram w-6 shrink-0 mt-1.5 text-orange-400"></i>
@@ -36,7 +28,7 @@
             
             <div class="mb-4 md:mb-0">
                 <h3 class="text-xl font-bold poppins">Amara <span class="text-orange-500">P</span><span class="text-red-500">i</span><span class="text-yellow-500">zz</span><span class="text-red-400">a</span></h3>
-                <p class="text-sm text-gray-400 mt-2">© 2025 Amara Pizza. Dibuat dengan ❤️</p>
+                <p class="text-sm text-gray-400 mt-2">© 2025 Amara Pizza</p>
             </div>
             
             <div class="flex space-x-4">
