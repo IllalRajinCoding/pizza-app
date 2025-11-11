@@ -103,7 +103,7 @@
                     </div>
 
                     <div class="p-6 bg-gray-50 mt-auto">
-                        <a href="https://wa.me/6285718115734?text=Hallo!%20Saya%20Order%20Varian%20{activeCategoryData.shortName}%20{product.name}" 
+                        <a href="https://wa.me/6285772091907?text=Hallo!%20Saya%20Order%20Varian%20{activeCategoryData.shortName}%20{product.name}" 
                            class="block w-full text-center bg-linear-to-r from-orange-500 to-red-600 text-white font-semibold px-5 py-3 rounded-lg hover:from-orange-600 hover:to-red-700 transition-all shadow-lg shadow-red-500/30">
                             Pesan Varian Ini
                         </a>

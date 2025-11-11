@@ -1,62 +1,4 @@
-<script>
-    import BenefitCard from '$lib/components/BenefitCard.svelte';
-
-    /**
-     * State untuk melacak kartu aktif di desktop.
-     */
-    let activeCard = 'kelebihan';
-
-    /**
-     * SATU SUMBER DATA (Single Source of Truth).
-     * Semua konten kartu didefinisikan di sini.
-     * Ikon menggunakan kelas Font Awesome 6.
-     */
-    const cardData = [
-        {
-            id: 'kelebihan',
-            title: 'Kelebihan Kami',
-            isHighlight: true, // Ini adalah kartu utama (gradien oranye-merah)
-            items: [
-                { icon: 'fa-solid fa-fire-flame-curved', text: 'Dibuat <strong>fresh from the oven</strong> setiap pesanan.' },
-                { icon: 'fa-solid fa-leaf', text: 'Menggunakan 100% bahan lokal berkualitas tinggi.' },
-                { icon: 'fa-solid fa-palette', text: 'Banyak varian rasa dan tersedia custom topping.' },
-                { icon: 'fa-solid fa-box-open', text: 'Tersedia pizza party box untuk acara spesial Anda.' },
-                { icon: 'fa-solid fa-star', text: 'Resep orisinal yang tidak bisa ditemukan di tempat lain.' }
-            ]
-        },
-        {
-            id: 'keuntungan',
-            title: 'Keuntungan Membeli',
-            isHighlight: false,
-            items: [
-                { icon: 'fa-solid fa-pizza-slice', text: '<strong>Harga Terjangkau:</strong> Kualitas premium, harga bersahabat.' },
-                { icon: 'fa-solid fa-truck-fast', text: '<strong>Layanan Antar Cepat:</b> Pizza dikirim hangat ke rumah Anda.' },
-                { icon: 'fa-solid fa-circle-check', text: '<strong>Kualitas Terjamin:</strong> Menggunakan bahan segar dan halal.' },
-                { icon: 'fa-solid fa-heart', text: '<strong>Cita Rasa Unik:</strong> Perpaduan resep Italia dan selera Nusantara.' },
-                { icon: 'fa-solid fa-store', text: '<strong>Dukungan UMKM Lokal:</strong> Membantu tumbuhnya ekonomi rumahan.' }
-            ]
-        },
-        {
-            id: 'kompetitif',
-            title: 'Keunggulan Kompetitif',
-            isHighlight: false,
-            items: [
-                { icon: 'fa-solid fa-trophy', text: '<strong>Homemade Quality, Restaurant Taste.</strong>' },
-                { icon: 'fa-solid fa-handshake-angle', text: 'Brand Lokal yang Peduli Pelanggan.' },
-                { icon: 'fa-solid fa-lightbulb', text: 'Inovatif dan Fleksibel dengan menu baru.' },
-                { icon: 'fa-solid fa-earth-asia', text: 'Kemasan Ramah Lingkungan.' },
-                { icon: 'fa-solid fa-mobile-screen-button', text: 'Kehadiran Online yang Kuat (Website, WA, Social Media).' }
-            ]
-        }
-    ];
-
-    // Kita pisahkan data untuk desktop agar lebih mudah dibaca di HTML
-    const kelebihan = cardData.find(c => c.id === 'kelebihan');
-    const keuntungan = cardData.find(c => c.id === 'keuntungan');
-    const kompetitif = cardData.find(c => c.id === 'kompetitif');
-</script>
-
-<section id="keunggulan" class="py-24 bg-white overflow-hidden perspective-[1000px]">
+<section id="keunggulan" class="py-24 bg-white overflow-hidden">
     <div class="container max-w-[1400px] mx-auto px-4">
         <div class="text-center max-w-3xl mx-auto mb-16 md:mb-20">
             <h2 class="text-3xl md:text-4xl font-bold poppins text-gray-900">
@@ -70,61 +12,152 @@
             </p>
         </div>
 
-        <div class="grid grid-cols-1 gap-8 md:hidden">
-            {#each cardData as card (card.id)}
-                <BenefitCard data={card} />
-            {/each}
-        </div>
-
-        <div class="hidden md:block relative max-w-4xl mx-auto h-[550px]">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             
-            <div 
-                class="absolute left-0 top-1/2 -translate-y-1/2 w-full md:w-[85%] origin-center 
-                       cursor-pointer transition-all duration-500 ease-in-out transform-3d"
-                class:z-30={activeCard === 'keuntungan'}
-                class:scale-105={activeCard === 'keuntungan'}
-                class:rotate-0={activeCard === 'keuntungan'}
-                class:z-0={activeCard !== 'keuntungan'}
-                class:scale-100={activeCard !== 'keuntungan'}
-                class:-rotate-6={activeCard !== 'keuntungan'}
-                on:click={() => activeCard = 'keuntungan'}
-                on:keydown={(e) => e.key === 'Enter' && (activeCard = 'keuntungan')}
-                role="button"
-                tabindex="0"
-            >
-                <BenefitCard data={keuntungan} />
+            <div class="p-8 rounded-2xl shadow-xl w-full bg-linear-to-br from-orange-500 to-red-600 shadow-red-500/30 border-2 border-orange-400 text-white">
+                <h3 class="text-2xl md:text-3xl font-semibold poppins mb-6 text-white text-center">
+                    Kelebihan Kami
+                </h3>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="w-8 shrink-0 text-center text-xl mr-2 text-amber-200">
+                            <i class="fa-solid fa-fire-flame-curved"></i>
+                        </span>
+                        <span class="text-lg text-gray-100">
+                            Dibuat <strong>fresh from the oven</strong> setiap pesanan.
+                        </span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-8 shrink-0 text-center text-xl mr-2 text-amber-200">
+                            <i class="fa-solid fa-leaf"></i>
+                        </span>
+                        <span class="text-lg text-gray-100">
+                            Menggunakan 100% bahan lokal berkualitas tinggi.
+                        </span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-8 shrink-0 text-center text-xl mr-2 text-amber-200">
+                            <i class="fa-solid fa-palette"></i>
+                        </span>
+                        <span class="text-lg text-gray-100">
+                            Banyak varian rasa dan tersedia custom topping.
+                        </span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-8 shrink-0 text-center text-xl mr-2 text-amber-200">
+                            <i class="fa-solid fa-box-open"></i>
+                        </span>
+                        <span class="text-lg text-gray-100">
+                            Tersedia pizza party box untuk acara spesial Anda.
+                        </span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-8 shrink-0 text-center text-xl mr-2 text-amber-200">
+                            <i class="fa-solid fa-star"></i>
+                        </span>
+                        <span class="text-lg text-gray-100">
+                            Resep orisinal yang tidak bisa ditemukan di tempat lain.
+                        </span>
+                    </li>
+                </ul>
             </div>
 
-            <div 
-                class="absolute right-0 top-1/2 -translate-y-1/2 w-full md:w-[85%] origin-center
-                       cursor-pointer transition-all duration-500 ease-in-out transform-3d"
-                class:z-30={activeCard === 'kompetitif'}
-                class:scale-105={activeCard === 'kompetitif'}
-                class:rotate-0={activeCard === 'kompetitif'}
-                class:z-0={activeCard !== 'kompetitif'}
-                class:scale-100={activeCard !== 'kompetitif'}
-                class:rotate-6={activeCard !== 'kompetitif'}
-                on:click={() => activeCard = 'kompetitif'}
-                on:keydown={(e) => e.key === 'Enter' && (activeCard = 'kompetitif')}
-                role="button"
-                tabindex="0"
-            >
-                <BenefitCard data={kompetitif} />
+            <div class="p-8 rounded-2xl shadow-xl w-full bg-gray-50 border-2 border-gray-200 text-gray-900">
+                <h3 class="text-2xl md:text-3xl font-semibold poppins mb-6 text-gray-900">
+                    Keuntungan Membeli
+                </h3>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="w-8 shrink-0 text-center text-xl mr-2 text-red-600">
+                            <i class="fa-solid fa-pizza-slice"></i>
+                        </span>
+                        <span class="text-lg text-gray-700">
+                            <strong>Harga Terjangkau:</strong> Kualitas premium, harga bersahabat.
+                        </span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-8 shrink-0 text-center text-xl mr-2 text-red-600">
+                            <i class="fa-solid fa-truck-fast"></i>
+                        </span>
+                        <span class="text-lg text-gray-700">
+                            <strong>Layanan Antar Cepat:</strong> Pizza dikirim hangat ke rumah Anda.
+                        </span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-8 shrink-0 text-center text-xl mr-2 text-red-600">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </span>
+                        <span class="text-lg text-gray-700">
+                            <strong>Kualitas Terjamin:</strong> Menggunakan bahan segar dan halal.
+                        </span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-8 shrink-0 text-center text-xl mr-2 text-red-600">
+                            <i class="fa-solid fa-heart"></i>
+                        </span>
+                        <span class="text-lg text-gray-700">
+                            <strong>Cita Rasa Unik:</strong> Perpaduan resep Italia dan selera Nusantara.
+                        </span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-8 shrink-0 text-center text-xl mr-2 text-red-600">
+                            <i class="fa-solid fa-store"></i>
+                        </span>
+                        <span class="text-lg text-gray-700">
+                            <strong>Dukungan UMKM Lokal:</strong> Membantu tumbuhnya ekonomi rumahan.
+                        </span>
+                    </li>
+                </ul>
             </div>
 
-            <div 
-                class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full md:w-[90%]
-                       cursor-pointer transition-all duration-500 ease-in-out transform-3d"
-                class:z-30={activeCard === 'kelebihan'}
-                class:scale-110={activeCard === 'kelebihan'} class:z-10={activeCard !== 'kelebihan'}
-                class:scale-95={activeCard !== 'kelebihan'}
-                on:click={() => activeCard = 'kelebihan'}
-                on:keydown={(e) => e.key === 'Enter' && (activeCard = 'kelebihan')}
-                role="button"
-                tabindex="0"
-            >
-                <BenefitCard data={kelebihan} />
+            <div class="p-8 rounded-2xl shadow-xl w-full bg-gray-50 border-2 border-gray-200 text-gray-900">
+                <h3 class="text-2xl md:text-3xl font-semibold poppins mb-6 text-gray-900">
+                    Keunggulan Kompetitif
+                </h3>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="w-8 shrink-0 text-center text-xl mr-2 text-red-600">
+                            <i class="fa-solid fa-trophy"></i>
+                        </span>
+                        <span class="text-lg text-gray-700">
+                            <strong>Homemade Quality, Restaurant Taste.</strong>
+                        </span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-8 shrink-0 text-center text-xl mr-2 text-red-600">
+                            <i class="fa-solid fa-handshake-angle"></i>
+                        </span>
+                        <span class="text-lg text-gray-700">
+                            Brand Lokal yang Peduli Pelanggan.
+                        </span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-8 shrink-0 text-center text-xl mr-2 text-red-600">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </span>
+                        <span class="text-lg text-gray-700">
+                            Inovatif dan Fleksibel dengan menu baru.
+                        </span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-8 shrink-0 text-center text-xl mr-2 text-red-600">
+                            <i class="fa-solid fa-earth-asia"></i>
+                        </span>
+                        <span class="text-lg text-gray-700">
+                            Kemasan Ramah Lingkungan.
+                        </span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-8 shrink-0 text-center text-xl mr-2 text-red-600">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </span>
+                        <span class="text-lg text-gray-700">
+                            Kehadiran Online yang Kuat (Website, WA, Social Media).
+                        </span>
+                    </li>
+                </ul>
             </div>
+
         </div>
     </div>
 </section>

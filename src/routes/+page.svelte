@@ -4,6 +4,7 @@
     import Produk from '$lib/components/Product.svelte';
     import Keunggulan from '$lib/components/Superiority.svelte';
     import Kontak from '$lib/components/Contact.svelte';
+    import Banner from '$lib/components/Banner.svelte';
 </script>
 
 <svelte:head>
@@ -12,6 +13,7 @@
 </svelte:head>
 
 <Hero />
+<Banner />
 <TentangKami />
 <Produk />
 <Keunggulan />
